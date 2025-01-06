@@ -1,2 +1,2 @@
 # Bag
-"Bag" is a C++ librari that makes vector easyier then use. There are konvenient funktions like "remove", "indexOf" nere.
+"Bag" is a C++ library that makes vector easyier to use. There are comfortable function like "remove", "indexOf" here.
