@@ -14,13 +14,6 @@ public:
 	{
 		vect.push_back(element);
 	}
-	void printElements(std::string text = "")
-	{
-		for (int i = 0;i<vect.size();i++)
-		{
-			std::cout << vect[i] << text << endl;
-		}
-	}
 	void remove(int element)
 	{
 		if (element != vect.size() - 1)
@@ -40,13 +33,14 @@ public:
 			vect.pop_back();
 		}
 	}
-	int indexOf(T element) // not for classes.
+	int indexOf(T* element)
 	{
-		auto it = std::find(vect.begin(), vect.end(), element);
-
-		if (it != vect.end()) {
-			std::size_t index = std::distance(vect.begin(), it);
-			return index;
+		for (int i = 0;i < vect.size();i++)
+		{
+			if (element == &vect[i])
+			{
+				return(i);
+			}
 		}
 	}
 	int size()
@@ -61,6 +55,16 @@ public:
 	{
 		std::sort(begin(vect),end(vect));
 	}
+	void reverse()
+	{
+		vector<T> newVect;
+		for (int i = vect.size() - 1;i > 0;i--)
+		{
+			newVect.push_back(vect[i]);
+		}
+		newVect.push_back(vect[0]);
+		vect = newVect;
+	}
 	void addVect(vector<T> element)
 	{
 		for (int i = 0;i < element.size();i++)
@@ -71,6 +75,24 @@ public:
 	void change(int element,T i)
 	{
 		vect[element] = i;
+	}
+	void printElements(std::string text = "")
+	{
+		for (int i = 0;i < vect.size();i++)
+		{
+			std::cout << vect[i] << text << endl;
+		}
+	}
+	void printPointers(std::string text = "")
+	{
+		for (int i = 0;i < vect.size();i++)
+		{
+			std::cout << &vect[i] << text << endl;
+		}
+	}
+	auto getPointer(int element)
+	{
+		return &vect[element];
 	}
 	T at(int element)
 	{
