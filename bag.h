@@ -1,34 +1,44 @@
 #pragma once
 #include <vector>
 #include <algorithm>
+
 using namespace std;
 template<typename T>
 struct bag
 {
-	vector<T> vect; //don't touch
+public:
+	vector<T> vect;
 
+public:
 	void add(T element)
 	{
 		vect.push_back(element);
 	}
-	void printElements()
+	void printElements(std::string text = "")
 	{
 		for (int i = 0;i<vect.size();i++)
 		{
-			std::cout << vect[i] << endl;
+			std::cout << vect[i] << text << endl;
 		}
 	}
 	void remove(int element)
 	{
-		vector<T> newVect;
-		for (int i = 0;i < vect.size();i++)
+		if (element != vect.size() - 1)
 		{
-			if (i != element)
+			vector<T> newVect;
+			for (int i = 0;i < vect.size();i++)
 			{
-				newVect.push_back(vect[i]);
+				if (i != element)
+				{
+					newVect.push_back(vect[i]);
+				}
 			}
+			vect = newVect;
 		}
-		vect = newVect;
+		else
+		{
+			vect.pop_back();
+		}
 	}
 	int indexOf(T element) // not for classes.
 	{
