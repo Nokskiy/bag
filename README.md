@@ -43,6 +43,6 @@ int main()
 
 	factorials.remove(factorials.indexOf(479001600)); //we are removing an element without specifying an index.
 
-	factorials.printElements(); //print bag elements
+	factorials.printElements(" element"); //print bag elements
 }
 ```
