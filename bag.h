@@ -94,8 +94,4 @@ public:
 	{
 		return &vect[element];
 	}
-	T at(int element)
-	{
-		return vect[element];
-	}
 };
